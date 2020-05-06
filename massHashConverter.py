@@ -19,7 +19,7 @@ def hash_line_convert(line, selected_hash):
 
 
 def inputf():
-    filename = input("Type here your file name: ")
+    filename = input("\n\tType here your file name: ")
     path = str(pathlib.Path().parent.absolute()) + "/" + filename
     noext_filename = Path(path).resolve().stem
     ext = str(pathlib.Path(filename).suffix)
@@ -28,6 +28,7 @@ def inputf():
 
 def hash_select():
     return input("""
+            
             Tool for mass converting into a selected hash type:
                 0 -\tSHA-1
                 1 -\tSHA-256
@@ -39,6 +40,7 @@ def hash_select():
 
 def indention_select():
     return input("""
+            
             Choose which indention format:
                 0 -\thash
                 1 -\trow_id | hash
@@ -72,7 +74,7 @@ def hash_print(noext_filename, filename, selected_hash, ext, selected_indention)
             f_out.write(curr_row)
             #print(curr_row)                                        #   REMOVE FOR STDOUT PRINT  (THIS HEAVILY SLOWS DOWN THE SCRIPT)
             hash_count += 1
-    print(str(hash_count) + " have been written adn converted successfully")
+    print(str(hash_count) + " have been written and converted successfully")
     f_in.close()
     f_out.close()
 
