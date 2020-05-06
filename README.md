@@ -3,7 +3,7 @@
 This Python script allows you to mass-convert word/sentences lists 
 into their corresponding hash strings
 
-# How to
+# How-To
 
   ```
   ./massHashConverter
@@ -12,6 +12,8 @@ into their corresponding hash strings
   ```
   python3.X massHashConverter
   ```
+#  Runtime How-To
+    Python 3.x
 
 #  Dependencies
     Python 3.x
