@@ -17,7 +17,6 @@ def hash_line_convert(line, selected_hash):
 
 
 def inputf(filename):
-
     path = str(pathlib.Path().parent.absolute()) + "/" + filename
     noext_filename = Path(path).resolve().stem
     ext = str(pathlib.Path(filename).suffix)
@@ -48,7 +47,7 @@ def indention_select():
 
 def hash_format(hash_count, selected_indention, line, curr_hash):
     if(selected_indention == 0):
-        return curr_hash
+        return "curr_hash\n"
     elif(selected_indention == 1):
         return ("%i - %s\n") % (hash_count, curr_hash)
     elif(selected_indention == 2):
@@ -65,8 +64,9 @@ def hash_print(noext_filename, filename, selected_hash, ext, selected_indention)
     with open(filename, 'r') as f_in:
         for line in f_in:
             curr_hash = hash_line_convert(line, selected_hash)
-            #f_out.write(str(curr_hash) + '\n')
-            print(hash_format(hash_count,selected_indention, line, curr_hash))
+            f_out.write(hash_format(
+                hash_count, selected_indention, line, curr_hash))
+            # print(hash_format(hash_count,selected_indention, line, curr_hash))             #   REMOVE FOR STDOUT PRINT
             hash_count += 1
     print(str(hash_count) + " have been converted succesfully")
     f_in.close()
@@ -75,11 +75,15 @@ def hash_print(noext_filename, filename, selected_hash, ext, selected_indention)
 
 def main():
     selected_hash = int(hash_select())
+    if(not(0 <= selected_hash <= 3)):
+        raise Exception('Input Error')
     selected_indention = int(indention_select())
+    if(not(0 <= selected_indention <= 3)):
+        raise Exception('Input Error')
     filename = input("Type here your file name: ")
     noext_filename, ext = inputf(filename)
-    hash_print(noext_filename, filename, 
-selected_hash, ext, selected_indention)
+    hash_print(noext_filename, filename,
+               selected_hash, ext, selected_indention)
 
 
 if (__name__ == '__main__'):
