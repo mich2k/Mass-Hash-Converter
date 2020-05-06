@@ -1,2 +1,13 @@
 # Mass-Hash-Converter
-Allows you to mass-convert 
+
+This Python script allows you to mass-convert word/sentences lists into their corresponding hash strings
+
+# How to
+
+  ```
+  ./massHashConverter
+  ```
+  or
+  ```
+  python3.X massHashConverter
+  ```
