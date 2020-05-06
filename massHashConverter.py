@@ -18,11 +18,12 @@ def hash_line_convert(line, selected_hash):
         raise Exception('Unknown Hash Identifier')
 
 
-def inputf(filename):
+def inputf():
+    filename = input("Type here your file name: ")
     path = str(pathlib.Path().parent.absolute()) + "/" + filename
     noext_filename = Path(path).resolve().stem
     ext = str(pathlib.Path(filename).suffix)
-    return noext_filename, ext
+    return noext_filename, ext, filename
 
 
 def hash_select():
@@ -69,9 +70,9 @@ def hash_print(noext_filename, filename, selected_hash, ext, selected_indention)
             curr_row = hash_format(
                 hash_count, selected_indention, line, curr_hash)
             f_out.write(curr_row)
-            # print(curr_row)                                        #   REMOVE FOR STDOUT PRINT
+            #print(curr_row)                                        #   REMOVE FOR STDOUT PRINT  (THIS HEAVILY SLOWS DOWN THE SCRIPT)
             hash_count += 1
-    print(str(hash_count) + " have been converted succesfully")
+    print(str(hash_count) + " have been written adn converted successfully")
     f_in.close()
     f_out.close()
 
@@ -83,8 +84,7 @@ def main():
     selected_indention = int(indention_select())
     if(not(0 <= selected_indention <= 3)):
         raise Exception('Input Error')
-    filename = input("Type here your file name: ")
-    noext_filename, ext = inputf(filename)
+    noext_filename, ext, filename = inputf()
     hash_print(noext_filename, filename,
                selected_hash, ext, selected_indention)
 
