@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+
 import hashlib
 import pathlib
 from pathlib import Path
@@ -65,9 +66,10 @@ def hash_print(noext_filename, filename, selected_hash, ext, selected_indention)
     with open(filename, 'r') as f_in:
         for line in f_in:
             curr_hash = hash_line_convert(line, selected_hash)
-            f_out.write(hash_format(
-                hash_count, selected_indention, line, curr_hash))
-            # print(hash_format(hash_count,selected_indention, line, curr_hash))             #   REMOVE FOR STDOUT PRINT
+            curr_row = hash_format(
+                hash_count, selected_indention, line, curr_hash)
+            f_out.write(curr_row)
+            # print(curr_row)                                        #   REMOVE FOR STDOUT PRINT
             hash_count += 1
     print(str(hash_count) + " have been converted succesfully")
     f_in.close()
