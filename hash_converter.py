@@ -2,6 +2,7 @@ import hashlib
 import pathlib
 from pathlib import Path
 
+
 def hash_line_convert(line, selected_hash):
     if(selected_hash == 0):
         return hashlib.sha1(line.encode("utf-8")).hexdigest()
@@ -14,12 +15,14 @@ def hash_line_convert(line, selected_hash):
     else:
         raise Exception('Unknown Identifier')
 
+
 def inputf(filename):
-    
+
     path = str(pathlib.Path().parent.absolute()) + "/" + filename
     noext_filename = Path(path).resolve().stem
     ext = str(pathlib.Path(filename).suffix)
     return noext_filename, ext
+
 
 def hash_select():
     return input("""
@@ -43,12 +46,7 @@ def indention_select():
                 Your choice:   """)
 
 
-def main():
-    selected_hash = int(hash_select())
-    
-    filename = 'rockyou_utf8.inp'
-    #filename = input("Type here your file name: ")
-    noext_filename, ext = inputf(filename)
+def hash_print(noext_filename, filename, selected_hash, ext):
     hash_count = 0
     f_out = open(str(noext_filename) + "-hashed" + ext, 'w')
     with open(filename, 'r') as f_in:
@@ -57,9 +55,15 @@ def main():
             f_out.write(str(curr_hash) + '\n')
             hash_count += 1
             #print("%s - %s\n" % (line.rstrip(),curr_hash ), end='')
+    print(str(hash_count) + " have been converted succesfully")
     f_in.close()
     f_out.close()
-    print(str(hash_count) + " have been converted succesfully")
+
+def main():
+    selected_hash = int(hash_select())
+    filename = input("Type here your file name: ")
+    noext_filename, ext = inputf(filename)
+    hash_print(noext_filename, filename, selected_hash, ext)
 
 
 if (__name__ == '__main__'):
