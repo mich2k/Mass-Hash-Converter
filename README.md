@@ -14,11 +14,11 @@ into their corresponding hash strings
   ```
 #  Runtime How-To
   
-  - Select the hash type (output may vary during the dev)
+  <h4> - Select the hash type (output may vary during the dev) </h4>
   
 ![im](https://i.imgur.com/Gk4et7K.png)
 
-  - Select the output format
+  <h4> - Select the output format </h4>
   
 ![im](https://i.imgur.com/8XRxKBN.png)
 
