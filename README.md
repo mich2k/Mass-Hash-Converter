@@ -13,7 +13,7 @@ into their corresponding hash strings
   python3.X massHashConverter
   ```
 #  Runtime How-To
-![im](https://imgur.com/a/YAGzzhM)
+![im](https://i.imgur.com/Gk4et7K.png)
 
 #  Dependencies
     Python 3.x
