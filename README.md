@@ -6,7 +6,7 @@ into their corresponding hash strings
 # How-To
 
   ```
-  ./massHashConverter
+  ./massHashConverter.py
   ```
   or
   ```
