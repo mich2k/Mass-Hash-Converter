@@ -6,11 +6,11 @@ into their corresponding hash strings
 # How-To
 
   ```
-  ./massHashConverter.py
+  ./mass-hash-converter.py
   ```
   or
   ```
-  python3.X massHashConverter
+  python3.X mass-hash-converter
   ```
 #  Runtime How-To
   
